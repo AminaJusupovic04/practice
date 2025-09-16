@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <script>
+        function startMyCode() {
+            console.log("Page loaded");
+            var myNameInput = document.getElementById("myName");
+            console.log("searching for name")
+            console.log("Found");
+            console.log(myNameInput);
+            
+        
+        }
+
+        function printValue() {
+            var myNameInput = document.getElementById("myName");
+            console.log(myNameInput.value);
+        }
+
+        function setValue() {
+            var valueToSet = "Hello form JavaScript";
+            document.getElementById("myName").value = valueToSet;
+        }
+
+        function hanged() {
+            var choiceBox = document.getElementById("choiceBox");
+            var selectedValue = choiceBox.value;
+            console.log("Selected value: " + selectedValue);
+        }
+        
+    </script>
+
+</head>
+<body onload="startMyCode()">
+<input type="text" id="myName" />
+<input type="button" onclick="printValue()" value="Print Value" />
+<input type="button" onclick="setValue()" value="Set Value" />
+<select id="choiceBox" onchange="choiceChanged()">
+    <option value="1">Books</option>
+    <option value="2">Movies</option>
+    <option value="3">Video Games</option>
+</select>
+</body>
+</html>

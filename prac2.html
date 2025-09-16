@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <script>
+        function startMyCode() {
+            console.log("page loaded");
+
+        }
+        function buildElement(){
+            var myInput = document.createElement('input');
+            myInput.setAttribute("type","text");
+            myInput.setAttribute("id","myInput");
+            myInput.setAttribute("value","Hello from JavaScript");
+
+            var myMainDiv = document.getElementById("main_content");
+
+            myMainDiv.appendChild(myInput);
+
+            var mylink = document.createElement('a');
+            mylink.setAttribute("href","https://www.google.com");
+            mylink.setAttribute("target","_blank");
+
+            var textInLink = document.createTextNode("Go to Google");
+            mylink.appendChild(textInLink);
+
+
+            document.getElementById("main_content").appendChild(mylink);
+
+            /*
+            <select>
+
+    <option value="1">Books</option>
+    <option value="2">Movies</option>
+           </select>
+
+
+            console.log(mylink);
+
+
+            */
+
+            var select=document.createElement('select');
+            for (var i = 1; i <= 3; i++){
+                var option=document.createElement('option');
+                option.setAttribute("value",i);
+                var textInOption=document.createTextNode("Option "+i);
+                option.appendChild(textInOption);
+                select.appendChild(option);
+                
+            }
+
+            console.log(select);
+
+            document.getElementById("main_content").appendChild(select);
+
+
+
+            var myImage= document.createElement('img');
+            myImage.setAttribute("src","https://img.freepik.com/premium-photo/best-amazing-wonderful-this-photo-take-this-picture-your-work-ai-generated-top-lovely-photo_1169327-105130.jpg")
+            myImage.setAttribute("width","300px");
+            myImage.setAttribute("height", "200px");
+            document.getElementById("main_content").appendChild(myImage);
+            console.log(myImage);
+        }
+
+
+        
+        
+    </script>
+</head>
+<body onload="startMyCode()">
+<button id ="builder" onclick="buildElement()">Build Element</button>
+<div id="main_content"></div>
+</body>
+</html>
