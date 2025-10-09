@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>lab3</title>
+  <script src="cookies.js"></script>
+</head>
+<body>
+  <div>
+    <label>First Name: </label>
+    <input type="text" id="fname"><br>
+    <label>Last Name: </label>
+    <input type="text" id="lname"><br>
+    <label>Address: </label>
+    <input type="text" id="adress"><br><br>
+    <button onclick="SaveCookies()">Save Data</button>
+  </div>
+
+  <script>
+    function SaveCookies() {
+      const FName = document.getElementById("fname").value.trim();
+      const LName = document.getElementById("lname").value.trim();
+      const Adress = document.getElementById("adress").value.trim();
+
+      if (FName) SetCookie("fname", FName, expiry);
+      if (LName) SetCookie("lname", LName, expiry);
+      if (Adress) SetCookie("adress", Adress, expiry);
+
+      const confirmation = document.createElement("h2");
+      confirmation.textContent = "Data saved successfully!";
+      confirmation.style.color = "green";
+      document.body.appendChild(confirmation);
+
+      CheckCookies();
+    }
+
+    function CheckCookies() {
+      const FNCookie = GetCookie("fname");
+      const LNCookie = GetCookie("lname");
+      const AdressCookie = GetCookie("adress");
+
+      if (FNCookie || LNCookie || AdressCookie) {
+        if (!document.getElementById("loadBtn")) {
+          const loadBtn = document.createElement("button");
+          loadBtn.id = "loadBtn";
+          loadBtn.textContent = "Load Previous Data";
+          loadBtn.onclick = LoadPreviousCookies;
+          document.querySelector("div").appendChild(loadBtn);
+        }
+      }
+    }
+
+    function LoadPreviousCookies() {
+      const FNCookie = GetCookie("fname");
+      const LNCookie = GetCookie("lname");
+      const AdressCookie = GetCookie("adress");
+
+      if (FNCookie) document.getElementById("fname").value = FNCookie;
+      if (LNCookie) document.getElementById("lname").value = LNCookie;
+      if (AdressCookie) document.getElementById("adress").value = AdressCookie;
+    }
+
+    window.onload = CheckCookies;
+  </script>
+</body>
+</html>

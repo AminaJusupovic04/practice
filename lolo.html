@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>lolo</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script>
+    function init() {
+        console.warn("The script has started");
+
+        $("#myParagraph")
+        $(".odd").css("color", "pink")
+        $(".even").css("color", "purple")
+
+        $("button").click(function() {
+            var buttonID = $(this).attr("id");
+
+            if (buttonID === "green") {
+                $("#myParagraph").css("color", "green");
+            } else if (buttonID === "blue") {
+                $("#myParagraph").css("color", "blue");
+            } else if (buttonID === "toggle") {
+                $("#myParagraph").toggle("slow");
+            }
+
+        });
+    } 
+  </script>
+
+</head>
+<body onload ="init()">
+
+    <h1 id="myParagraph">jQuery</h1>
+    <p id="myParagraph"> This is a pragraph </p>
+    <!-- <p class="odd"> This is a pragraph </p>
+    <p class="even"> This is a pragraph </p>s
+    <p class="odd"> This is a pragraph </p>
+    <p class="even"> This is a pragraph </p> -->
+    <button id="green">Paint green</button>
+    <button id="blue">Paint blue</button>
+    <button id="toggle">Toggle</button>
+
+
+
+
+</body>
+</html>
